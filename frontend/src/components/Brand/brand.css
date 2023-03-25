@@ -1,0 +1,11 @@
+.brand__letters {
+    font-weight: 500;
+    font-size: 5rem;
+    letter-spacing: 0.2rem;
+}
+
+.brand__logo {
+    margin-bottom: -0.3rem;
+    margin-right: 0.4rem;
+    width: 2.8rem;
+}

@@ -1,22 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import Lodging from "./pages/Lodging";
 import About from "./pages/About";
 import Error404 from "./pages/Error404";
+import Footer from "./components/Footer";
 
-import "./App.css";
-
-function App() {
+function Router() {
     return (
-        <Router>
+        <BrowserRouter>
+            <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/lodging" element={<Lodging />} />
                 <Route path="/about" element={<About />} />
                 <Route path="*" element={<Error404 />} />
             </Routes>
-        </Router>
+            <Footer />
+        </BrowserRouter>
     );
 }
 
-export default App;
+export default Router;
