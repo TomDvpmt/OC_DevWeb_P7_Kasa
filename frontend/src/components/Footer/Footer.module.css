@@ -1,6 +1,7 @@
 .footer {
-    background-color: black;
+    margin-top: 2.2rem;
     padding: 4rem;
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,16 +10,6 @@
 
 .footer span {
     color: white;
-}
-
-.footer .brand__letters {
-    font-size: 3.5rem;
-}
-
-.footer .brand__logo {
-    width: 2rem;
-    margin-bottom: -0.3rem;
-    margin-right: 0.3rem;
 }
 
 .copyright {

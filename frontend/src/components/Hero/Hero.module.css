@@ -1,12 +1,13 @@
 .hero {
-    height: 111px;
+    margin-bottom: 2.2rem;
     border-radius: 10px;
     background-color: black;
     background-size: cover;
+    background-position: center;
     display: grid;
 }
 
-.hero__opacity {
+.opacity {
     border-radius: 10px;
     grid-column: 1;
     grid-row: 1;
@@ -25,6 +26,12 @@
     font-weight: 500;
 }
 
-.hero--home {
+.home {
     background-image: url("../../assets//img/kasa_hero-home.jpg");
+    height: 111px;
+}
+
+.about {
+    background-image: url("../../assets/img/kasa_hero-about.jpg");
+    height: 223px;
 }

@@ -1,0 +1,21 @@
+.error404 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.heading {
+    font-size: 9.6rem;
+    font-weight: 700;
+}
+
+.description {
+    font-size: 1.8rem;
+    margin-bottom: 13rem;
+}
+
+.back_to_home {
+    font-size: 1.4rem;
+}

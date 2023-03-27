@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import logoPrimary from "../../assets/logo/kasa-house-logo.png";
 import logoWhite from "../../assets/logo/kasa-house-logo-white.png";
-import "./brand.css";
+import styles from "./Brand.module.css";
 
 const Brand = ({ position }) => {
     Brand.propTypes = {
@@ -10,15 +10,15 @@ const Brand = ({ position }) => {
     };
 
     return (
-        <div className="brand">
-            <span className="brand__letters">K</span>
+        <div className={styles[position]}>
+            <span className={styles.letters}>K</span>
             <img
-                className="brand__logo"
+                className={styles.logo}
                 src={position === "footer" ? logoWhite : logoPrimary}
                 alt="Kasa house logo"
                 width="32"
             />
-            <span className="brand__letters">sa</span>
+            <span className={styles.letters}>sa</span>
         </div>
     );
 };

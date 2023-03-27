@@ -1,0 +1,21 @@
+.letters {
+    font-weight: 500;
+    font-size: 5rem;
+    letter-spacing: 0.2rem;
+}
+
+.logo {
+    margin-bottom: -0.3rem;
+    margin-right: 0.4rem;
+    width: 2.8rem;
+}
+
+.footer .logo {
+    width: 2rem;
+    margin-bottom: -0.3rem;
+    margin-right: 0.3rem;
+}
+
+.footer .letters {
+    font-size: 3.5rem;
+}

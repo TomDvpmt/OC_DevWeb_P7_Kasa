@@ -1,0 +1,27 @@
+.carousel {
+    padding: 0.6rem;
+    display: grid;
+    align-items: center;
+}
+
+.chevron {
+    height: 2rem;
+    margin: 0.6rem;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 99;
+}
+
+.right {
+    justify-self: end;
+}
+
+.images {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: hidden;
+}
+
+.images img {
+    max-width: 100%;
+}

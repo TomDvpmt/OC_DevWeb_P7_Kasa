@@ -1,12 +1,14 @@
 import Brand from "../Brand";
 
-import "./footer.css";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
     return (
-        <footer className="footer">
+        <footer className={styles.footer}>
             <Brand position="footer" />
-            <span className="copyright">© 2023 Kasa. All rights reserved</span>
+            <span className={styles.copyright}>
+                © 2023 Kasa. All rights reserved
+            </span>
         </footer>
     );
 };

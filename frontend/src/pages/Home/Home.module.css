@@ -1,0 +1,9 @@
+main {
+    padding: 2rem;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
