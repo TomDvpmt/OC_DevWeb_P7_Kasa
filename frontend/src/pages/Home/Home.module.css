@@ -7,3 +7,7 @@ main {
     flex-direction: column;
     gap: 2rem;
 }
+
+.cards a:hover {
+    text-decoration: none;
+}

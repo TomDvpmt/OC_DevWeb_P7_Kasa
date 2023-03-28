@@ -1,0 +1,46 @@
+.heading {
+    margin: 1.5rem 0 0.5rem 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.location {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.tags {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.rating_and_host {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.host {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.host span {
+    max-width: 9.3rem;
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.host img {
+    width: 3.2rem;
+    border-radius: 50%;
+}
+
+.dropdowns > article:first-child {
+    margin: 2rem 0;
+}

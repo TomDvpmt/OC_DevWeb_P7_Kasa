@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Brand from "../Brand";
 
 import styles from "./Header.module.css";
@@ -8,8 +8,8 @@ const Header = () => {
         <header className={styles.header}>
             <Brand position="header" />
             <nav>
-                <Link to="/">Accueil</Link>
-                <Link to="/about">A propos</Link>
+                <NavLink to="/">Accueil</NavLink>
+                <NavLink to="/about">A propos</NavLink>
             </nav>
         </header>
     );

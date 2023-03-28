@@ -31,11 +31,6 @@ const Carousel = ({ images, title }) => {
         }
     };
 
-    useEffect(() => {
-        console.log(carouselPosition);
-        console.log(100 * carouselPosition + "%");
-    }, [carouselPosition, images]);
-
     return (
         <>
             {images && (
@@ -70,6 +65,11 @@ const Carousel = ({ images, title }) => {
                                 }}></div>
                         ))}
                     </div>
+                    {images.length > 1 && (
+                        <span className={styles.images_count}>{`${
+                            carouselPosition + 1
+                        }/${images.length}`}</span>
+                    )}
                 </section>
             )}
         </>

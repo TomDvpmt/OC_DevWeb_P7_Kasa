@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
 import Carousel from "../../components/Carousel";
+import Tag from "../../components/Tag";
+import DropDown from "../../components/DropDown";
+import Rating from "../../components/Rating";
 
 import styles from "./Accomodation.module.css";
 
 const Accomodation = () => {
+    const navigate = useNavigate();
     const id = useParams().id;
     const [accomodation, setAccomodation] = useState({});
 
@@ -17,7 +22,18 @@ const Accomodation = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                setAccomodation(data.filter((element) => element.id === id)[0]);
+                if (
+                    data.reduce(
+                        (acc, element) => acc || element.id === id,
+                        false
+                    )
+                ) {
+                    setAccomodation(
+                        data.filter((element) => element.id === id)[0]
+                    );
+                } else {
+                    navigate("/error404");
+                }
             })
 
             .catch((error) => console.log(error));
@@ -30,7 +46,40 @@ const Accomodation = () => {
                 title={accomodation.title}
             />
             <section>
-                <h1>{accomodation.title}</h1>
+                <h1 className={styles.heading}>{accomodation.title}</h1>
+                <p className={styles.location}>{accomodation.location}</p>
+                <div className={styles.tags}>
+                    {accomodation.tags &&
+                        accomodation.tags.map((tag) => (
+                            <Tag key={tag} name={tag} />
+                        ))}
+                </div>
+                {accomodation.host && (
+                    <div className={styles.rating_and_host}>
+                        <Rating rating={parseInt(accomodation.rating)} />
+                        <div className={styles.host}>
+                            <span>{accomodation.host.name}</span>
+                            <img
+                                src={accomodation.host.picture}
+                                alt="Portrait de l'hôte"
+                            />
+                        </div>
+                    </div>
+                )}
+                <div className={styles.dropdowns}>
+                    <DropDown
+                        key="description"
+                        name="Description"
+                        contentType="string"
+                        content={accomodation.description}
+                    />
+                    <DropDown
+                        key="equipments"
+                        name="Equipements"
+                        contentType="array"
+                        content={accomodation.equipments}
+                    />
+                </div>
             </section>
         </main>
     );

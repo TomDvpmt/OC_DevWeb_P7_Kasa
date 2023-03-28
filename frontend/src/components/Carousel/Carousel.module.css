@@ -21,7 +21,7 @@
     grid-column: 1;
     grid-row: 1;
     overflow: hidden;
-    height: 300px;
+    height: 255px;
     display: flex;
 }
 
@@ -30,4 +30,16 @@
     background-size: cover;
     background-position: center;
     transition: transform ease 1s;
+}
+
+.images_count {
+    margin-bottom: 2.5rem;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    justify-self: center;
+    z-index: 99;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: white;
 }

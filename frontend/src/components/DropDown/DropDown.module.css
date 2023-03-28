@@ -37,6 +37,10 @@
     transition: all ease 300ms;
 }
 
+.content li {
+    font-size: 1.2rem;
+}
+
 .content.show {
     min-height: 143px;
     max-height: 100vh;

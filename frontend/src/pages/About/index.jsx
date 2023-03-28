@@ -3,7 +3,7 @@ import DropDown from "../../components/DropDown";
 import styles from "./About.module.css";
 
 const About = () => {
-    const dropDowns = [
+    const aboutDropDowns = [
         {
             name: "Fiabilité",
             content:
@@ -29,10 +29,11 @@ const About = () => {
         <main>
             <Hero page="about" />
             <section className={styles.dropdowns}>
-                {dropDowns.map((element, index) => (
+                {aboutDropDowns.map((element, index) => (
                     <DropDown
                         key={index}
                         name={element.name}
+                        contentType="string"
                         content={element.content}
                     />
                 ))}
