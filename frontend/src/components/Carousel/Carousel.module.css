@@ -17,11 +17,17 @@
 }
 
 .images {
+    border-radius: 10px;
     grid-column: 1;
     grid-row: 1;
     overflow: hidden;
+    height: 300px;
+    display: flex;
 }
 
-.images img {
-    max-width: 100%;
+.carousel_image {
+    min-width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform ease 1s;
 }
