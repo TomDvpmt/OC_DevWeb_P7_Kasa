@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import chevronLeft from "../../assets/chevron/chevron_left.png";
 import chevronRight from "../../assets/chevron/chevron_right.png";
@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 import styles from "./Carousel.module.css";
 
-const Carousel = ({ images, title }) => {
+const Carousel = ({ images }) => {
     Carousel.propTypes = {
         images: PropTypes.array,
         title: PropTypes.string,
@@ -36,24 +36,27 @@ const Carousel = ({ images, title }) => {
             {images && (
                 <section className={styles.carousel}>
                     {images.length > 1 && (
-                        <img
-                            id="left"
-                            className={`${styles.chevron} ${styles.left}`}
-                            src={chevronLeft}
-                            alt="Carousel navigation left"
-                            onClick={handleCarouselNavigation}
-                        />
-                    )}
-                    {images.length > 1 && (
-                        <img
-                            id="right"
-                            className={`${styles.chevron} ${styles.right}`}
-                            src={chevronRight}
-                            alt="Carousel navigation right"
-                            onClick={handleCarouselNavigation}
-                        />
-                    )}
+                        <>
+                            <span className={styles.images_count}>{`${
+                                carouselPosition + 1
+                            }/${images.length}`}</span>
 
+                            <img
+                                id="left"
+                                className={`${styles.chevron} ${styles.left}`}
+                                src={chevronLeft}
+                                alt="Carousel navigation left"
+                                onClick={handleCarouselNavigation}
+                            />
+                            <img
+                                id="right"
+                                className={`${styles.chevron} ${styles.right}`}
+                                src={chevronRight}
+                                alt="Carousel navigation right"
+                                onClick={handleCarouselNavigation}
+                            />
+                        </>
+                    )}
                     <div className={styles.images}>
                         {images.map((image, index) => (
                             <div
@@ -65,11 +68,6 @@ const Carousel = ({ images, title }) => {
                                 }}></div>
                         ))}
                     </div>
-                    {images.length > 1 && (
-                        <span className={styles.images_count}>{`${
-                            carouselPosition + 1
-                        }/${images.length}`}</span>
-                    )}
                 </section>
             )}
         </>

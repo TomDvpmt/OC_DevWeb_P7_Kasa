@@ -32,6 +32,7 @@ const About = () => {
                 {aboutDropDowns.map((element, index) => (
                     <DropDown
                         key={index}
+                        page="about"
                         name={element.name}
                         contentType="string"
                         content={element.content}

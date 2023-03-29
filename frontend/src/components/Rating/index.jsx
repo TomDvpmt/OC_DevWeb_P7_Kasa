@@ -17,17 +17,12 @@ const Rating = ({ rating }) => {
             let stars = [];
             for (let i = 1; i <= 5; i++) {
                 stars.push(
-                    i <= rating ? <FullStar /> : <EmptyStar />
-                    // <img
-                    //     key={i}
-                    //     src={i <= rating ? fullStar : emptyStar}
-                    //     alt={i <= rating ? "étoile pleine" : "étoile vide"}
-                    // />
+                    i <= rating ? <FullStar key={i} /> : <EmptyStar key={i} />
                 );
             }
             return stars;
         });
-    }, []);
+    }, [rating]);
 
     return <div className={styles.rating}>{stars}</div>;
 };

@@ -2,13 +2,16 @@ import { useState, useEffect } from "react";
 
 import Hero from "../../components/Hero";
 import Card from "../../components/Card";
+import Loader from "../../components/Loader";
 
 import styles from "./Home.module.css";
 
 const Home = () => {
     const [cards, setCards] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         fetch("logements.json")
             .then((response) => response.json())
             .then((data) => {
@@ -22,6 +25,7 @@ const Home = () => {
                         />
                     ))
                 );
+                setIsLoading(false);
             })
 
             .catch((error) => console.log(error));
@@ -30,7 +34,11 @@ const Home = () => {
     return (
         <main>
             <Hero page="home" />
-            <section className={styles.cards}>{cards}</section>
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <section className={styles.cards}>{cards}</section>
+            )}
         </main>
     );
 };

@@ -4,5 +4,11 @@
 }
 
 .rating svg {
-    width: 15px;
+    width: 1.5rem;
+}
+
+@media screen and (min-width: 900px) {
+    .rating svg {
+        width: 3rem;
+    }
 }

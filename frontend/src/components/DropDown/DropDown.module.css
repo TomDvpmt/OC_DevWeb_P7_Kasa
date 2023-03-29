@@ -1,4 +1,4 @@
-.button {
+.heading {
     width: 100%;
     background-color: var(--color-primary);
     padding: 0.6rem 1.1rem;
@@ -12,14 +12,16 @@
 }
 
 .chevron {
+    width: 1.5rem;
+    transform: rotate(180deg);
     transition: transform ease 300ms;
 }
 
 .chevron.pivot {
-    transform: rotate(180deg);
+    transform: rotate(0deg);
 }
 
-.button h2 {
+.heading h2 {
     font-size: 1.3rem;
     font-weight: 500;
     color: white;
@@ -46,4 +48,67 @@
     max-height: 100vh;
     padding: 2.3rem 1.1rem;
     overflow: auto;
+}
+
+@media screen and (min-width: 600px) {
+    .dropdown {
+        margin: 0;
+        flex: 1;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .heading {
+        padding: 1rem 1.7rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .heading {
+        padding: 1.3rem 2rem;
+        border-radius: 1rem;
+    }
+
+    .about .heading {
+        border-radius: 0.5rem;
+    }
+
+    .heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .about .heading h2 {
+        font-size: 2.4rem;
+    }
+
+    .chevron {
+        width: 2.3rem;
+    }
+
+    .content,
+    .content > li {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .content {
+        padding: 0 2rem;
+    }
+
+    .content.show {
+        padding: 2.7rem 2rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .content,
+    .content > li {
+        font-size: 1.8rem;
+        line-height: 2.5rem;
+    }
+
+    .about .content {
+        font-size: 2.4rem;
+        line-height: 3.4rem;
+    }
 }

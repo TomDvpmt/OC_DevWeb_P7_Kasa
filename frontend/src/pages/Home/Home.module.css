@@ -3,11 +3,45 @@ main {
 }
 
 .cards {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
 .cards a:hover {
     text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr 1fr;
+        padding: 3rem;
+        background-color: var(--color-secondary-lightest);
+        border-radius: 1rem;
+        gap: 3.5rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .cards {
+        border-radius: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    main {
+        padding: 2rem 10rem;
+    }
+    .cards {
+        border-radius: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 5rem;
+
+        gap: 6rem;
+    }
 }

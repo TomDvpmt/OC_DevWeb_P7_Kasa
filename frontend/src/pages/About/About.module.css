@@ -1,5 +1,13 @@
 .dropdowns {
+    max-width: 1023px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+}
+
+@media screen and (min-width: 900px) {
+    .dropdowns {
+        gap: 3rem;
+    }
 }

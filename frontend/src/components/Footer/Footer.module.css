@@ -16,3 +16,21 @@
     margin-top: 1.5rem;
     font-size: 1.2rem;
 }
+
+@media screen and (min-width: 600px) {
+    .copyright {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .copyright {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .copyright {
+        font-size: 2.4rem;
+    }
+}

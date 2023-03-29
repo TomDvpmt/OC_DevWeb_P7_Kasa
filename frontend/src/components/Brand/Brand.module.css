@@ -19,3 +19,16 @@
 .footer .letters {
     font-size: 3.5rem;
 }
+
+@media screen and (min-width: 600px) {
+    .letters {
+        font-size: 7rem;
+    }
+
+    .logo {
+        width: 3.8rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+}

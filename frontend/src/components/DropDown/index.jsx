@@ -1,13 +1,14 @@
 import { useState } from "react";
 
-import chevron from "../../assets/chevron/chevron_up.png";
+import { ReactComponent as Chevron } from "../../assets/chevron/chevron_up.svg";
 
 import PropTypes from "prop-types";
 
 import styles from "./DropDown.module.css";
 
-const DropDown = ({ name, contentType, content }) => {
+const DropDown = ({ page, name, contentType, content }) => {
     DropDown.propTypes = {
+        page: PropTypes.string,
         name: PropTypes.string,
         contentType: PropTypes.string,
         content: PropTypes.any,
@@ -20,15 +21,16 @@ const DropDown = ({ name, contentType, content }) => {
     };
 
     return (
-        <article className={styles.dropdown}>
-            <button className={styles.button} onClick={handleClick}>
+        <article
+            className={`${styles.dropdown}  ${
+                page === "about" && styles.about
+            }`}>
+            <button className={styles.heading} onClick={handleClick}>
                 <h2>{name}</h2>
-                <img
+                <Chevron
                     className={`${styles.chevron} ${
                         showContent && styles.pivot
                     }`}
-                    src={chevron}
-                    alt="dropdown menu chevron"
                 />
             </button>
 

@@ -1,5 +1,5 @@
 .header {
-    padding: 1.5rem;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,4 +13,32 @@ nav {
 nav > a {
     text-transform: uppercase;
     font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 600px) {
+    nav {
+        gap: 3rem;
+    }
+
+    nav > a {
+        text-transform: none;
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    nav {
+        gap: 5.7rem;
+    }
+
+    nav > a {
+        font-size: 2.4rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .header {
+        padding: 4rem 10rem;
+    }
 }
