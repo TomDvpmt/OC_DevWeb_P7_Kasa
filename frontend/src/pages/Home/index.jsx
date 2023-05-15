@@ -9,8 +9,10 @@ import styles from "./Home.module.css";
 const Home = () => {
     const [cards, setCards] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
+        setErrorMessage("");
         setIsLoading(true);
         fetch("logements.json")
             .then((response) => response.json())
@@ -25,17 +27,22 @@ const Home = () => {
                         />
                     ))
                 );
-                setIsLoading(false);
             })
 
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                console.log(error);
+                setErrorMessage("Impossible d'afficher les données.");
+            })
+            .finally(() => setIsLoading(false));
     }, []);
 
     return (
-        <main>
+        <main className="main">
             <Hero page="home" />
             {isLoading ? (
                 <Loader />
+            ) : errorMessage ? (
+                <p>{errorMessage}</p>
             ) : (
                 <section className={styles.cards}>{cards}</section>
             )}

@@ -26,7 +26,7 @@ const About = () => {
         },
     ];
     return (
-        <main>
+        <main className="main">
             <Hero page="about" />
             <section className={styles.dropdowns}>
                 {aboutDropDowns.map((element, index) => (

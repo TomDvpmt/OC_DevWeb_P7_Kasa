@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+.heading:hover {
+    cursor: pointer;
+}
+
 .chevron {
     width: 1.5rem;
     transform: rotate(180deg);

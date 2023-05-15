@@ -14,6 +14,7 @@ const Accomodation = () => {
     const id = useParams().id;
     const [accomodation, setAccomodation] = useState({});
     const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         setIsLoading(true);
@@ -34,21 +35,26 @@ const Accomodation = () => {
                     setAccomodation(
                         data.filter((element) => element.id === id)[0]
                     );
-                    setIsLoading(false);
                 } else {
                     navigate("/error404");
                 }
             })
 
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                console.log(error);
+                setErrorMessage("Impossible d'afficher les données.");
+            })
+            .finally(() => setIsLoading(false));
     }, [id, navigate]);
 
     return (
         <>
             {isLoading ? (
                 <Loader />
+            ) : errorMessage ? (
+                <p>{errorMessage}</p>
             ) : (
-                <main className={styles.accomodation}>
+                <main className={`main ${styles.accomodation}`}>
                     <Carousel
                         images={accomodation.pictures}
                         title={accomodation.title}
