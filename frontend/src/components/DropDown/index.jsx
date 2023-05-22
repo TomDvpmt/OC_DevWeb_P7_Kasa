@@ -2,18 +2,9 @@ import { useState } from "react";
 
 import { ReactComponent as Chevron } from "../../assets/chevron/chevron_up.svg";
 
-import PropTypes from "prop-types";
-
 import styles from "./DropDown.module.css";
 
 const DropDown = ({ page, label, contentType, content }) => {
-    DropDown.propTypes = {
-        page: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
-        contentType: PropTypes.string.isRequired,
-        content: PropTypes.any.isRequired,
-    };
-
     const [showContent, setShowContent] = useState(false);
 
     const handleClick = () => {

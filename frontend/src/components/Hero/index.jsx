@@ -1,14 +1,8 @@
 import React from "react";
 
-import PropTypes from "prop-types";
-
 import styles from "./Hero.module.css";
 
 const Hero = ({ page }) => {
-    Hero.propTypes = {
-        page: PropTypes.string.isRequired,
-    };
-
     return (
         <section className={`${styles.hero} ${styles[page]}`}>
             <div className={styles.opacity}></div>

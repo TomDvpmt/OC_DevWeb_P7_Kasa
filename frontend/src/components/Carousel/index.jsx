@@ -3,15 +3,9 @@ import { useState } from "react";
 import chevronLeft from "../../assets/chevron/chevron_left.png";
 import chevronRight from "../../assets/chevron/chevron_right.png";
 
-import PropTypes from "prop-types";
-
 import styles from "./Carousel.module.css";
 
 const Carousel = ({ images }) => {
-    Carousel.propTypes = {
-        images: PropTypes.array.isRequired,
-    };
-
     const [carouselPosition, setCarouselPosition] = useState(0);
 
     const handleCarouselNavigation = (e) => {

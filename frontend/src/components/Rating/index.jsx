@@ -3,15 +3,9 @@ import { useEffect, useState } from "react";
 import { ReactComponent as EmptyStar } from "../../assets/stars/star_empty.svg";
 import { ReactComponent as FullStar } from "../../assets/stars/star_full.svg";
 
-import PropTypes from "prop-types";
-
 import styles from "./Rating.module.css";
 
 const Rating = ({ rating }) => {
-    Rating.propTypes = {
-        rating: PropTypes.number.isRequired,
-    };
-
     const [stars, setStars] = useState([]);
 
     useEffect(() => {

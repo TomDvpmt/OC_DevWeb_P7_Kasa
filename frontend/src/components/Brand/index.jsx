@@ -3,15 +3,9 @@ import React from "react";
 import logoPrimary from "../../assets/brand/kasa-house-logo.png";
 import logoWhite from "../../assets/brand/kasa-house-logo-white.png";
 
-import PropTypes from "prop-types";
-
 import styles from "./Brand.module.css";
 
 const Brand = ({ position }) => {
-    Brand.propTypes = {
-        position: PropTypes.string.isRequired,
-    };
-
     return (
         <div className={styles[position]}>
             <span className={styles.letters}>K</span>
