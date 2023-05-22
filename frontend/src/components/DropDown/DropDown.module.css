@@ -31,17 +31,11 @@
     color: white;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
 .content {
-    margin-top: -0.7rem;
     background: var(--color-secondary-lightest);
     border-radius: 0.5rem;
-    flex-basis: 0;
     padding: 0 1.1rem;
+    max-height: 0px;
     overflow: hidden;
     font-size: 1.2rem;
     transition: all ease 300ms;
@@ -51,9 +45,9 @@
     font-size: 1.2rem;
 }
 
-.show .content {
+.show {
     padding: 2.3rem 1.1rem;
-    flex-basis: 160px;
+    max-height: 200px;
 }
 
 @media screen and (min-width: 600px) {
@@ -101,8 +95,9 @@
         padding: 0 2rem;
     }
 
-    .content.show {
+    .show {
         padding: 2.7rem 2rem;
+        max-height: 250px;
     }
 }
 
@@ -116,5 +111,9 @@
     .about .content {
         font-size: 2.4rem;
         line-height: 3.4rem;
+    }
+
+    .show {
+        max-height: 300px;
     }
 }
