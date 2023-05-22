@@ -31,12 +31,16 @@
     color: white;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 .content {
     margin-top: -0.7rem;
     background: var(--color-secondary-lightest);
     border-radius: 0.5rem;
-    min-height: 0px;
-    max-height: 0px;
+    flex-basis: 0;
     padding: 0 1.1rem;
     overflow: hidden;
     font-size: 1.2rem;
@@ -47,11 +51,9 @@
     font-size: 1.2rem;
 }
 
-.content.show {
-    min-height: 143px;
-    max-height: 100vh;
+.show .content {
     padding: 2.3rem 1.1rem;
-    overflow: auto;
+    flex-basis: 160px;
 }
 
 @media screen and (min-width: 600px) {

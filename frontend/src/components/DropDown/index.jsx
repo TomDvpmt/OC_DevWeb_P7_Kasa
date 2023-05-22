@@ -34,26 +34,19 @@ const DropDown = ({ page, label, contentType, content }) => {
                 />
             </button>
 
-            <>
+            <div
+                className={`${styles.container} ${showContent && styles.show}`}>
                 {contentType === "list" ? (
-                    <ul
-                        className={`${styles.content} ${
-                            showContent && styles.show
-                        }`}>
+                    <ul className={styles.content}>
                         {content &&
                             content.map((listItem, index) => (
                                 <li key={index}>{listItem}</li>
                             ))}
                     </ul>
                 ) : (
-                    <p
-                        className={`${styles.content} ${
-                            showContent && styles.show
-                        }`}>
-                        {content}
-                    </p>
+                    <p className={styles.content}>{content}</p>
                 )}
-            </>
+            </div>
         </article>
     );
 };
