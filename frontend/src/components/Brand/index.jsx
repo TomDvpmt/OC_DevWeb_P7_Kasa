@@ -1,7 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import logoPrimary from "../../assets/brand/kasa-house-logo.png";
 import logoWhite from "../../assets/brand/kasa-house-logo-white.png";
+
+import PropTypes from "prop-types";
+
 import styles from "./Brand.module.css";
 
 const Brand = ({ position }) => {

@@ -1,24 +1,30 @@
 import { Link } from "react-router-dom";
 
-import styles from "./ErrorBoundary.module.css";
-
 import PropTypes from "prop-types";
 
-const ErrorBoundary = ({ errorMessage }) => {
-    ErrorBoundary.propTypes = {
-        errorMessage: PropTypes.string.isRequired,
-    };
+import styles from "./ErrorBoundary.module.css";
 
-    const handleRefresh = () => {
-        window.location.reload();
+const ErrorBoundary = ({ page, errorMessage }) => {
+    ErrorBoundary.propTypes = {
+        page: PropTypes.string.isRequired,
+        errorMessage: PropTypes.string.isRequired,
     };
 
     return (
         <div className={styles.container}>
             <p className={styles.message}>{errorMessage}</p>
-            <Link className={styles.link} onClick={handleRefresh}>
-                Essayer de rafraîchir la page
-            </Link>
+            <div className={styles.links}>
+                <Link
+                    className={styles.link}
+                    onClick={() => window.location.reload()}>
+                    Essayer de rafraîchir la page
+                </Link>
+                {page !== "home" && (
+                    <Link className={styles.link} to="/">
+                        Retourner à l'accueil
+                    </Link>
+                )}
+            </div>
         </div>
     );
 };

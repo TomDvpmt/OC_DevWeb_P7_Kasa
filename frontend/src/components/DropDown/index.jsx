@@ -6,10 +6,10 @@ import PropTypes from "prop-types";
 
 import styles from "./DropDown.module.css";
 
-const DropDown = ({ page, name, contentType, content }) => {
+const DropDown = ({ page, label, contentType, content }) => {
     DropDown.propTypes = {
         page: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
         contentType: PropTypes.string.isRequired,
         content: PropTypes.any.isRequired,
     };
@@ -26,7 +26,7 @@ const DropDown = ({ page, name, contentType, content }) => {
                 page === "about" && styles.about
             }`}>
             <button className={styles.heading} onClick={handleClick}>
-                <h2>{name}</h2>
+                <h2>{label}</h2>
                 <Chevron
                     className={`${styles.chevron} ${
                         showContent && styles.pivot
@@ -35,14 +35,7 @@ const DropDown = ({ page, name, contentType, content }) => {
             </button>
 
             <>
-                {contentType === "string" ? (
-                    <p
-                        className={`${styles.content} ${
-                            showContent && styles.show
-                        }`}>
-                        {content}
-                    </p>
-                ) : (
+                {contentType === "list" ? (
                     <ul
                         className={`${styles.content} ${
                             showContent && styles.show
@@ -52,6 +45,13 @@ const DropDown = ({ page, name, contentType, content }) => {
                                 <li key={index}>{listItem}</li>
                             ))}
                     </ul>
+                ) : (
+                    <p
+                        className={`${styles.content} ${
+                            showContent && styles.show
+                        }`}>
+                        {content}
+                    </p>
                 )}
             </>
         </article>

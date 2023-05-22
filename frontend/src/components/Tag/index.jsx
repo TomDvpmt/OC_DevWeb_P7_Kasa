@@ -1,14 +1,14 @@
-import styles from "./Tag.module.css";
-
 import PropTypes from "prop-types";
 
-const Tag = ({ name }) => {
+import styles from "./Tag.module.css";
+
+const Tag = ({ label }) => {
     Tag.propTypes = {
-        name: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
     };
     return (
         <button className={styles.tag} type="button">
-            {name}
+            {label}
         </button>
     );
 };

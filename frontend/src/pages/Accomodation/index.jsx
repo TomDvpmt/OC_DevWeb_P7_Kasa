@@ -13,12 +13,15 @@ import styles from "./Accomodation.module.css";
 const Accomodation = () => {
     const navigate = useNavigate();
     const { id } = useParams();
+
     const [accomodation, setAccomodation] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
+        setErrorMessage("");
         setIsLoading(true);
+
         fetch("../logements.json", {
             headers: {
                 "Content-Type": "application/json",
@@ -27,18 +30,12 @@ const Accomodation = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                if (
-                    data.reduce(
-                        (acc, element) => acc || element.id === id,
-                        false
-                    )
-                ) {
-                    setAccomodation(data.find((element) => element.id === id));
-                } else {
+                const item = data.find((element) => element.id === id);
+                if (!item) {
                     navigate("/error404");
                 }
+                setAccomodation(item);
             })
-
             .catch((error) => {
                 console.error(error);
                 setErrorMessage("Impossible d'afficher les données.");
@@ -51,11 +48,14 @@ const Accomodation = () => {
             {isLoading ? (
                 <Loader />
             ) : errorMessage ? (
-                <main className={`main ${styles.accomodation}`}>
-                    <ErrorBoundary errorMessage={errorMessage} />
+                <main className="main">
+                    <ErrorBoundary
+                        page="accomodation"
+                        errorMessage={errorMessage}
+                    />
                 </main>
             ) : (
-                <main className={`main ${styles.accomodation}`}>
+                <main className="main">
                     {accomodation.pictures && accomodation.title && (
                         <Carousel
                             images={accomodation.pictures}
@@ -63,17 +63,21 @@ const Accomodation = () => {
                         />
                     )}
                     <section>
-                        <h1 className={styles.heading}>{accomodation.title}</h1>
+                        {accomodation.title && (
+                            <h1 className={styles.heading}>
+                                {accomodation.title}
+                            </h1>
+                        )}
                         <p className={styles.location}>
                             {accomodation.location}
                         </p>
                         <div className={styles.tags}>
                             {accomodation.tags &&
                                 accomodation.tags.map((tag) => (
-                                    <Tag key={tag} name={tag} />
+                                    <Tag key={tag} label={tag} />
                                 ))}
                         </div>
-                        {accomodation.host && (
+                        {accomodation.host && accomodation.rating && (
                             <div className={styles.rating_and_host}>
                                 <Rating
                                     rating={parseInt(accomodation.rating)}
@@ -93,8 +97,8 @@ const Accomodation = () => {
                                 <DropDown
                                     key="description"
                                     page="accomodation"
-                                    name="Description"
-                                    contentType="string"
+                                    label="Description"
+                                    contentType="paragraph"
                                     content={accomodation.description}
                                 />
                             )}
@@ -102,8 +106,8 @@ const Accomodation = () => {
                                 <DropDown
                                     key="equipments"
                                     page="accomodation"
-                                    name="Equipements"
-                                    contentType="array"
+                                    label="Equipements"
+                                    contentType="list"
                                     content={accomodation.equipments}
                                 />
                             )}

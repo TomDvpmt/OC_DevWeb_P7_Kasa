@@ -43,7 +43,7 @@ const Home = () => {
             {isLoading ? (
                 <Loader />
             ) : errorMessage ? (
-                <ErrorBoundary errorMessage={errorMessage} />
+                <ErrorBoundary page="home" errorMessage={errorMessage} />
             ) : (
                 <section className={styles.cards}>{cards}</section>
             )}
