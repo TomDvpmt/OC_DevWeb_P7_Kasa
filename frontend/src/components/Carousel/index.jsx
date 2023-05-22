@@ -9,8 +9,7 @@ import styles from "./Carousel.module.css";
 
 const Carousel = ({ images }) => {
     Carousel.propTypes = {
-        images: PropTypes.array,
-        title: PropTypes.string,
+        images: PropTypes.array.isRequired,
     };
 
     const [carouselPosition, setCarouselPosition] = useState(0);
@@ -58,7 +57,7 @@ const Carousel = ({ images }) => {
                         </>
                     )}
                     <div className={styles.images}>
-                        {images.map((image, index) => (
+                        {images?.map((image, index) => (
                             <div
                                 key={index}
                                 className={styles.carousel_image}

@@ -8,10 +8,10 @@ import styles from "./DropDown.module.css";
 
 const DropDown = ({ page, name, contentType, content }) => {
     DropDown.propTypes = {
-        page: PropTypes.string,
-        name: PropTypes.string,
-        contentType: PropTypes.string,
-        content: PropTypes.any,
+        page: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        contentType: PropTypes.string.isRequired,
+        content: PropTypes.any.isRequired,
     };
 
     const [showContent, setShowContent] = useState(false);

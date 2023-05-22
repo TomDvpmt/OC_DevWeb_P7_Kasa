@@ -7,7 +7,7 @@ import styles from "./Rating.module.css";
 
 const Rating = ({ rating }) => {
     Rating.propTypes = {
-        rating: PropTypes.number,
+        rating: PropTypes.number.isRequired,
     };
 
     const [stars, setStars] = useState([]);

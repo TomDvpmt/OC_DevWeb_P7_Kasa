@@ -6,9 +6,9 @@ import styles from "./Card.module.css";
 
 const Card = ({ id, cover, title }) => {
     Card.propTypes = {
-        id: PropTypes.string,
-        cover: PropTypes.string,
-        title: PropTypes.string,
+        id: PropTypes.string.isRequired,
+        cover: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
     };
     return (
         <Link to={`/accomodation/${id}`}>

@@ -6,12 +6,13 @@ import Tag from "../../components/Tag";
 import DropDown from "../../components/DropDown";
 import Rating from "../../components/Rating";
 import Loader from "../../components/Loader";
+import ErrorBoundary from "../../components/ErrorBoundary";
 
 import styles from "./Accomodation.module.css";
 
 const Accomodation = () => {
     const navigate = useNavigate();
-    const id = useParams().id;
+    const { id } = useParams();
     const [accomodation, setAccomodation] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -32,16 +33,14 @@ const Accomodation = () => {
                         false
                     )
                 ) {
-                    setAccomodation(
-                        data.filter((element) => element.id === id)[0]
-                    );
+                    setAccomodation(data.find((element) => element.id === id));
                 } else {
                     navigate("/error404");
                 }
             })
 
             .catch((error) => {
-                console.log(error);
+                console.error(error);
                 setErrorMessage("Impossible d'afficher les données.");
             })
             .finally(() => setIsLoading(false));
@@ -52,13 +51,17 @@ const Accomodation = () => {
             {isLoading ? (
                 <Loader />
             ) : errorMessage ? (
-                <p>{errorMessage}</p>
+                <main className={`main ${styles.accomodation}`}>
+                    <ErrorBoundary errorMessage={errorMessage} />
+                </main>
             ) : (
                 <main className={`main ${styles.accomodation}`}>
-                    <Carousel
-                        images={accomodation.pictures}
-                        title={accomodation.title}
-                    />
+                    {accomodation.pictures && accomodation.title && (
+                        <Carousel
+                            images={accomodation.pictures}
+                            title={accomodation.title}
+                        />
+                    )}
                     <section>
                         <h1 className={styles.heading}>{accomodation.title}</h1>
                         <p className={styles.location}>
@@ -84,21 +87,26 @@ const Accomodation = () => {
                                 </div>
                             </div>
                         )}
+
                         <div className={styles.dropdowns}>
-                            <DropDown
-                                key="description"
-                                page="accomodation"
-                                name="Description"
-                                contentType="string"
-                                content={accomodation.description}
-                            />
-                            <DropDown
-                                key="equipments"
-                                page="accomodation"
-                                name="Equipements"
-                                contentType="array"
-                                content={accomodation.equipments}
-                            />
+                            {accomodation.description && (
+                                <DropDown
+                                    key="description"
+                                    page="accomodation"
+                                    name="Description"
+                                    contentType="string"
+                                    content={accomodation.description}
+                                />
+                            )}
+                            {accomodation.equipments && (
+                                <DropDown
+                                    key="equipments"
+                                    page="accomodation"
+                                    name="Equipements"
+                                    contentType="array"
+                                    content={accomodation.equipments}
+                                />
+                            )}
                         </div>
                     </section>
                 </main>

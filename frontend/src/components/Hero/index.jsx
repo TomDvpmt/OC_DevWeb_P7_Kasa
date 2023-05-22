@@ -4,7 +4,7 @@ import styles from "./Hero.module.css";
 
 const Hero = ({ page }) => {
     Hero.propTypes = {
-        page: PropTypes.string,
+        page: PropTypes.string.isRequired,
     };
 
     return (

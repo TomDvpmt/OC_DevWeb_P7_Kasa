@@ -6,7 +6,7 @@ import styles from "./Brand.module.css";
 
 const Brand = ({ position }) => {
     Brand.propTypes = {
-        position: PropTypes.string,
+        position: PropTypes.string.isRequired,
     };
 
     return (

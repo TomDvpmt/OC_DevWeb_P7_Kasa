@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Hero from "../../components/Hero";
 import Card from "../../components/Card";
 import Loader from "../../components/Loader";
+import ErrorBoundary from "../../components/ErrorBoundary";
 
 import styles from "./Home.module.css";
 
@@ -30,7 +31,7 @@ const Home = () => {
             })
 
             .catch((error) => {
-                console.log(error);
+                console.error(error);
                 setErrorMessage("Impossible d'afficher les données.");
             })
             .finally(() => setIsLoading(false));
@@ -42,7 +43,7 @@ const Home = () => {
             {isLoading ? (
                 <Loader />
             ) : errorMessage ? (
-                <p>{errorMessage}</p>
+                <ErrorBoundary errorMessage={errorMessage} />
             ) : (
                 <section className={styles.cards}>{cards}</section>
             )}
