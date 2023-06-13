@@ -22,18 +22,15 @@
     font-family: Montserrat, "Helvetica Neue", sans-serif;
 }
 
-body {
-    max-width: 1920px;
-    margin: auto;
-}
-
 #root {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .main {
+    max-width: 1920px;
     flex-grow: 1;
 }
 

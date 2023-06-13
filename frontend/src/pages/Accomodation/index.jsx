@@ -12,6 +12,7 @@ import styles from "./Accomodation.module.css";
 
 const Accomodation = () => {
     const navigate = useNavigate();
+
     const { id } = useParams();
 
     const [accomodation, setAccomodation] = useState({});
