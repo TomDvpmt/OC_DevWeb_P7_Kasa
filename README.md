@@ -1,8 +1,12 @@
 <center>
 
-![Logo de l'application Kasa](/frontend/src/assets/brand/kasa-logo-complete.png)
+![Logo de l'application Kasa](/src/assets/brand/kasa-logo-complete.png)
 
 </center>
+
+# Lien vers l'application
+
+[https://tomdvpmt-kasa.netlify.app/](https://tomdvpmt-kasa.netlify.app/)
 
 # Contexte
 
@@ -31,30 +35,30 @@ Le projet consistait à créer le front-end de l'application à partir d'une **m
 
 <center>
 
-![Page d'accueil de Kasa](/frontend/src/assets/captures/kasa-home.webp)
+![Page d'accueil de Kasa](/src/assets/captures/kasa-home.webp)
 
 </center>
 
 <center>
 
-![Page logement de Kasa](/frontend/src/assets/captures/kasa-accomodation.webp)
+![Page logement de Kasa](/src/assets/captures/kasa-accomodation.webp)
 
 </center>
 
 <center>
 
-![Page "À propos" de Kasa](/frontend/src/assets/captures/kasa-about.webp)
+![Page "À propos" de Kasa](/src/assets/captures/kasa-about.webp)
 
 </center>
 
 # Installation
 
-Dans le répertoire `frontend`, exécuter la commande :
+Dans le répertoire racine, exécuter la commande :
 
 `npm install`
 
 # Lancement de l'application
 
-Dans le répertoire `frontend`, exécuter la commande :
+Dans le répertoire racine, exécuter la commande :
 
 `npm start`
